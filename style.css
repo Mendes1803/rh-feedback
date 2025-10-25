@@ -1,0 +1,386 @@
+/* -------------------------------------------------------------------------- */
+/* 1. VARIÁVEIS DE COR E BASE */
+/* -------------------------------------------------------------------------- */
+:root {
+    /* Cores do Tema PAC */
+    --color-pac-green: #557344; /* Primary */
+    --color-pac-yellow: #e0a638; /* Secondary */
+    --color-pac-red: #c95c52; /* Accent */
+    --color-pac-brown: #966946; /* Shadow Accent */
+    
+    /* Cores de Fundo (Aproximação Tailwind) */
+    --color-bg-light-green: #f0fdf4;
+    --color-bg-light-yellow: #ffedd5;
+    --color-bg-light-red: #fef2f2;
+    --color-bg-yellow-100: #fef9c3;
+    
+    /* Cores de Texto */
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-white: #ffffff;
+}
+
+/* Base Body e Fundo */
+.body-pac {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box; /* Garante que padding não afete o layout */
+    
+    /* Fundo degradê suave */
+    background: linear-gradient(135deg, var(--color-bg-light-green) 0%, var(--color-bg-light-yellow) 50%, var(--color-bg-light-red) 100%);
+}
+
+@media (min-width: 640px) {
+    .body-pac {
+        padding: 1.5rem;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. CARD STICKER (card-pac) - ANIMAÇÕES/ESTILOS CSS PURA */
+/* -------------------------------------------------------------------------- */
+
+.card-pac {
+    width: 100%;
+    max-width: 576px;
+    background-color: var(--color-white);
+    /* Padding uniformizado para melhor simetria */
+    padding: 2rem; 
+    border-radius: 1.5rem;
+    position: relative;
+    
+    /* Estilo Adesivo/Sticker */
+    transform: rotate(-0.5deg); 
+    transition: all 0.4s ease-in-out;
+    border: 4px solid var(--color-pac-green); 
+    box-shadow: 8px 8px 0px var(--color-pac-red), 
+                12px 12px 0px var(--color-pac-yellow); 
+}
+
+@media (min-width: 640px) {
+    .card-pac {
+        padding: 2.5rem;
+    }
+}
+
+.card-pac:hover {
+    transform: rotate(0deg) scale(1.01); 
+    box-shadow: 10px 10px 0px var(--color-pac-red), 
+                15px 15px 0px var(--color-pac-yellow);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. HEADER E TÍTULOS */
+/* -------------------------------------------------------------------------- */
+
+.header-pac {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.logo-pac {
+    width: 6rem;
+    height: auto;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+    transition: all 0.5s;
+}
+
+.logo-pac:hover {
+    transform: scale(1.1);
+}
+
+/* Título Principal - Bebas Neue (title-bebas) */
+.title-bebas {
+    font-family: 'Bebas Neue', cursive;
+    line-height: 1.0; 
+    color: var(--color-pac-green); 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+    
+    /* Tamanho e Stroke - Mobile */
+    font-size: 2.25rem;
+    text-shadow: -2px -2px 0 var(--color-pac-yellow), 
+                 2px -2px 0 var(--color-pac-yellow), 
+                 -2px 2px 0 var(--color-pac-yellow), 
+                 2px 2px 0 var(--color-pac-yellow); 
+}
+
+@media (min-width: 640px) {
+    .title-bebas {
+        font-size: 3.5rem;
+        text-shadow: -3px -3px 0 var(--color-pac-yellow), 
+                     3px -3px 0 var(--color-pac-yellow), 
+                     -3px 3px 0 var(--color-pac-yellow), 
+                     3px 3px 0 var(--color-pac-yellow);
+    }
+}
+
+/* Subtítulo */
+.subtitle-pac {
+    font-weight: 700;
+    color: var(--color-gray-800);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 2px solid rgba(85, 115, 68, 0.5);
+    background-color: rgba(224, 166, 56, 0.3);
+    font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+    .subtitle-pac {
+        font-size: 1.125rem;
+    }
+}
+
+/* Barra de Cores Decorativa */
+.color-bar-pac {
+    width: 16rem;
+    height: 0.5rem;
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0; 
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 9999px;
+    overflow: hidden;
+}
+.color-bar-pac > div {
+    width: 33.333%;
+    height: 100%;
+}
+.bar-primary { background-color: var(--color-pac-green); }
+.bar-secondary { background-color: var(--color-pac-yellow); }
+.bar-accent-red { background-color: var(--color-pac-red); }
+
+/* Texto de Instrução/Confidencialidade */
+.text-info {
+    font-size: 0.875rem;
+    color: var(--color-gray-700);
+    font-weight: 500;
+    width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. FORMULÁRIO E CAMPOS */
+/* -------------------------------------------------------------------------- */
+
+.form-pac {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Estilo para Grupos de Campo */
+.field-optional-group,
+.field-main-group {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border: 4px solid rgba(201, 92, 82, 0.7);
+}
+
+/* Estilo Específico para o Campo Opcional */
+.field-optional-group {
+    background-color: var(--color-bg-yellow-100);
+}
+
+.label-optional,
+.label-main {
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-pac-green);
+    margin-bottom: 0.25rem;
+}
+
+@media (min-width: 640px) {
+    .label-optional,
+    .label-main {
+        font-size: 1.125rem;
+    }
+}
+
+/* Tags de Destaque */
+.tag-optional-badge,
+.tag-main-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 900;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.tag-optional-badge {
+    background-color: var(--color-pac-red);
+    color: var(--color-white);
+}
+
+/* Estilo Específico para o Campo Principal */
+.field-main-group {
+    background-color: rgba(85, 115, 68, 0.1);
+}
+
+.tag-main-badge {
+    background-color: var(--color-pac-green);
+    color: var(--color-pac-yellow);
+}
+
+
+/* Inputs de Texto e Textarea */
+.input-optional-field,
+.feedback-textarea {
+    margin-top: 0.25rem;
+    display: block;
+    width: 100%;
+    /* CORREÇÃO AQUI: Adiciona box-sizing para evitar o estouro (vazamento) para a direita */
+    box-sizing: border-box; 
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    resize: vertical;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.875rem;
+    color: var(--color-gray-800);
+}
+
+@media (min-width: 640px) {
+    .input-optional-field,
+    .feedback-textarea {
+        font-size: 1rem;
+    }
+}
+
+/* Estilo para Campo Opcional */
+.input-optional-field {
+    border: 3px dashed var(--color-pac-red);
+}
+
+.input-optional-field:focus { 
+    outline: none; 
+    border-color: var(--color-pac-yellow); 
+    box-shadow: 0 0 0 5px rgba(85, 115, 68, 0.3);
+}
+
+/* Estilo para Textarea Principal */
+.feedback-textarea {
+    border: 3px dashed var(--color-pac-yellow);
+    overflow: hidden; 
+}
+
+.feedback-textarea:focus {
+    outline: none;
+    border-color: var(--color-pac-red);
+    box-shadow: 0 0 0 5px rgba(85, 115, 68, 0.3);
+}
+
+/* Remoção da barra de rolagem (Efeito CSS Pura) */
+.feedback-textarea::-webkit-scrollbar { display: none; width: 0; }
+.feedback-textarea { -ms-overflow-style: none; scrollbar-width: none; cursor: text; }
+
+
+/* -------------------------------------------------------------------------- */
+/* 5. BOTÃO DE SUBMISSÃO */
+/* -------------------------------------------------------------------------- */
+
+.submit-container {
+    padding-top: 0.25rem;
+}
+
+.submit-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    font-size: 1.125rem;
+    font-weight: 900;
+    color: var(--color-white);
+    text-transform: uppercase;
+    
+    background-color: var(--color-pac-red);
+    transition: all 0.3s;
+    transform: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (min-width: 640px) {
+    .submit-button {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        font-size: 1.25rem;
+    }
+}
+
+/* Efeitos de Interação (Hover e Active) */
+.submit-button:hover:not(:disabled) {
+    background-color: var(--color-pac-green);
+    transform: scale(1.03);
+}
+
+.submit-button:active:not(:disabled) {
+    /* Animação que o CSS consegue: um pequeno giro e encolhimento */
+    transform: scale(0.98) rotate(1deg); 
+}
+
+.submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--color-white), 0 0 0 8px rgba(201, 92, 82, 0.5);
+}
+
+/* NOVO: Estilo para Botão Desabilitado/Carregando */
+.submit-button:disabled {
+    background-color: var(--color-pac-brown); /* Cor de fundo mais discreta */
+    cursor: not-allowed;
+    transform: none; /* Remove hover/active transforms */
+    opacity: 0.8;
+}
+
+/* NOVO: Estilo para Sucesso (feedback) */
+.submit-button.success {
+    background-color: var(--color-pac-green); /* Verde para sucesso */
+}
+
+
+/* 6. SPINNER DE CARREGAMENTO (NOVO) */
+/* -------------------------------------------------------------------------- */
+
+/* Contêiner do Spinner e Texto (para alinhamento) */
+.button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* Spinner em si */
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid var(--color-white); 
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: none; /* Inicialmente oculto */
+}
+
+/* Exibir spinner quando o botão estiver no estado de carregamento */
+.submit-button[aria-busy="true"] .spinner {
+    display: block;
+}
+
+/* Animação do giro */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

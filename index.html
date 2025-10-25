@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="RHPAC.png" type="image/x-icon">
+    <title>Eu Acho Engraçado Que...</title>
+    
+    <!-- Link para o CSS de estilização pura -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Fontes (Carregadas via Link, sem JS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400;700&family=Inter:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body class="body-pac"> 
+
+    <!-- Contêiner Principal do Card (Simula um adesivo) -->
+    <div class="card-pac">
+
+        <!-- Seção de Cabeçalho e Títulos -->
+        <div class="header-pac"> 
+            <!-- LOGO DA EMPRESA -->
+            <img src="WhatsApp Image 2025-10-17 at 19.39.18.png" 
+                 alt="Logo PAC - Pequenos Aprendizados Culturais" 
+                 class="logo-pac" 
+                 onerror="this.onerror=null; this.src='https://placehold.co/96x96/557344/ffffff?text=LOGO+PAC';"
+            />
+
+            <!-- Título Principal (com Fonte Bebas Neue) -->
+            <h1 class="title-bebas title-main">
+                EU ACHO ENGRAÇADO QUE
+            </h1>
+            <!-- Subtítulo de Contexto -->
+            <p class="subtitle-pac"> 
+                Caixa de Sinceridade Anônima (PAC)
+            </p>
+            
+            <!-- Barra de Cores Decorativa -->
+            <div class="color-bar-pac"> 
+                <div class="bar-primary"></div>
+                <div class="bar-secondary"></div>
+                <div class="bar-accent-red"></div>
+            </div>
+
+            <!-- Texto de Instrução/Confidencialidade -->
+            <p class="text-info"> 
+                Sua opinião é 100% confidencial. Este é o seu espaço livre.
+            </p>
+        </div>
+        
+        <!-- Formulário (Configurado para Netlify) -->
+        <form action="https://formsubmit.co/nicolymendes0318@gmail.com" method="POST" class="form-pac">
+            <!-- Agrupamento de Campo Opcional -->
+            <div class="field-optional-group"> 
+                <label for="nome" class="label-optional"> 
+                    <span class="tag-optional-badge">#QuemÉ?</span> Gostaria de se identificar? (Opcional)
+                </label>
+                <input type="text" id="nome" name="Nome (Opcional)"
+                        placeholder="Seu Nome ou 'Prefiro Não Dizer' (Opcional)"
+                        class="input-optional-field" />
+            </div>
+
+            <!-- Agrupamento de Campo Principal e Obrigatório -->
+            <div class="field-main-group"> 
+                <label for="engracado" class="label-main"> 
+                    <span class="tag-main-badge">#HonestidadeNoMic</span> Conte-nos TUDO: 
+                </label>
+                <textarea id="engracado" name="Comentario Engracado" rows="5" required 
+                            placeholder="Exemplo: 'Eu acho engraçado que a gente gasta mais tempo discutindo do que fazendo algo!'"
+                            class="feedback-textarea"></textarea>
+            </div>
+            
+            <!-- Contêiner do Botão de Envio -->
+            <div class="submit-container"> 
+                <button type="submit"
+                        class="submit-button"> 
+                    Enviar Feedback
+                </button>
+            </div>
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="http://127.0.0.1:3000/hh/agradecimento.html">
+        </form>
+    </div>
+</body>
+</html>
